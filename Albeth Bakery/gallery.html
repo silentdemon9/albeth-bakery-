@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albeth Bakery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="albeth.png" alt="Bakery Logo"></div>
+        <nav>   
+            <a href="FrontPage.html"><button>Home</button></a>
+            <a href="history.html"><button>Story</button></a>
+            <a href="achievements.html"><button>Achievements</button></a>
+            <a href="gallery.html"><button>Gallery</button></a>
+        </nav>
+    </header>
+
+    <section class="gallery">
+        <h2>Our team in the store with co-owner Elena Malabag with an interview video</h2>
+        <div class="gallery-grid">
+            <img src="photo nung bakery.jpg" alt="Bakery Image 1" onclick="openModal(this)">
+            <img src="photo nung bakery(2).jpg" alt="Bakery Image 2" onclick="openModal(this)">
+            <img src="photo nung bakery(3).jpg" alt="Bakery Image 3" onclick="openModal(this)">    
+            <video controls width="100%" class="gallery-video" onclick="openModal(this)">
+                <source src="1026.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="Daniel.jpg" onclick="openModal(this)">
+                <li>Daniel Nuguit (Project Manager)</li>
+            </div>
+            <div class="team-member">
+                <img src="ugh.jpg" onclick="openModal(this)">
+                <li>Veejay T. Basilio (Encoder)</li>
+            </div>
+            <div class="team-member">
+                <img src="painmon.jpg" onclick="openModal(this)">
+                <li>Rj Bagtas</li>
+            </div>
+            <div class="team-member">
+                <img src="tristan.jpg" onclick="openModal(this)">
+                <li>Tristan Laurence </li>
+            </div>
+            <div class="team-member">
+                <img src="Borbon.jpg" onclick="openModal(this)">
+                <li>Andrew Borbon</li>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="mediaModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" style="display: none;">
+        <video controls class="modal-content" id="modalVideo" style="display: none; max-width: 80%; max-height: 80%; border-radius: 8px;">
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <footer>
+        <p>&copy; Albeth Bakery | Come see us on <a href="https://maps.app.goo.gl/q2kU8e2butMdiD4r7" target="_blank">Google maps</a></p>
+    </footer>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("mediaModal");
+            var modalImg = document.getElementById("modalImage");
+            var modalVideo = document.getElementById("modalVideo");
+
+            modal.style.display = "flex";
+
+            if (element.tagName === "IMG") {
+                modalImg.src = element.src;
+                modalImg.style.display = "block";
+                modalVideo.style.display = "none";
+            } else if (element.tagName === "VIDEO") {
+                modalVideo.src = element.querySelector("source").src;
+                modalVideo.style.display = "block";
+                modalImg.style.display = "none";
+            }
+        }
+        
+        function closeModal() {
+            var modal = document.getElementById("mediaModal");
+            var modalImg = document.getElementById("modalImage");
+            var modalVideo = document.getElementById("modalVideo");
+
+            modal.style.display = "none";
+
+            modalImg.src = "";
+            modalVideo.src = "";
+        }
+    </script>
+
+</body>
+</html>
